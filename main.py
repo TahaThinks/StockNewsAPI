@@ -33,6 +33,12 @@ print(daily_prices)
 
 #TODO 2. - Get the day before yesterday's closing stock price
 
+current_day_cp = daily_prices[str(current_day)]["4. close"]
+previous_day_cp = daily_prices[str(previous_day)]["4. close"]
+
+print(current_day_cp)
+print(previous_day_cp)
+
 #TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
 
 #TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
