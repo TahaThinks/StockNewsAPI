@@ -40,7 +40,6 @@ response.raise_for_status()
 daily_prices = response.json()["Time Series (Daily)"]
 print(daily_prices)
 
-# TODO 2. - Get the day before yesterday's closing stock price
 
 current_day_close = float(daily_prices[str(current_day)]["4. close"])
 previous_day_close = float(daily_prices[str(previous_day)]["4. close"])
