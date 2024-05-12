@@ -30,7 +30,6 @@ NEWS_ENPOINT_PARAMS = {
     'apiKey': NEWS_API_KEY
 }
 
-## STEP 1: Use https://www.alphavantage.co/documentation/#daily
 
 
 response = requests.get(STOCK_ENDPOINT, params=ALPHA_ENDPOINT_PARAMS)
