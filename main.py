@@ -47,10 +47,8 @@ previous_day_close = float(daily_prices[str(previous_day)]["4. close"])
 print(f"Current Price {current_day_close}")
 print(f"Previous Price {previous_day_close}")
 
-# TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
 closing_price_diff = abs(current_day_close - previous_day_close)
 
-# TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
 percentage = round((closing_price_diff / previous_day_close) * 100, 2)
 print(f"Percentage: {percentage}")
 
@@ -79,13 +77,3 @@ for article in articles:
                               )
     print(message.sid)
 
-# Optional TODO: Format the message like this:
-"""
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-"""
