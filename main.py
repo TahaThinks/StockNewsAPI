@@ -30,13 +30,10 @@ NEWS_ENPOINT_PARAMS = {
     'apiKey': NEWS_API_KEY
 }
 
-
-
 response = requests.get(STOCK_ENDPOINT, params=ALPHA_ENDPOINT_PARAMS)
 response.raise_for_status()
 daily_prices = response.json()["Time Series (Daily)"]
 print(daily_prices)
-
 
 current_day_close = float(daily_prices[str(current_day)]["4. close"])
 previous_day_close = float(daily_prices[str(previous_day)]["4. close"])
@@ -64,12 +61,11 @@ client = Client(account_sid, auth_token)
 
 for article in articles:
     message = client.messages.create(
-                                  body=f'{STOCK_NAME} {percentage}%\n'
-                                       f'Headline:{article["title"]}\n'
-                                       f'Brief{article["description"]}\n'
-                                       f'by TahaLearns',
-                                  from_=f'whatsapp:{api_data.TWILIO_NUMBER}',
-                                  to=f'whatsapp:{api_data.MY_NUMBER}'
-                              )
+        body=f'{STOCK_NAME} {percentage}%\n'
+             f'Headline:{article["title"]}\n'
+             f'Brief{article["description"]}\n'
+             f'by TahaLearns',
+        from_=f'whatsapp:{api_data.TWILIO_NUMBER}',
+        to=f'whatsapp:{api_data.MY_NUMBER}'
+    )
     print(message.sid)
-
