@@ -2,6 +2,7 @@ import api_data
 import requests
 from datetime import datetime as dt
 from datetime import timedelta
+from twilio.rest import Client
 
 day = dt.now().date()
 current_day = day - timedelta(days=2)
@@ -53,7 +54,7 @@ closing_price_diff = abs(current_day_close - previous_day_close)
 percentage = round((closing_price_diff / previous_day_close) * 100, 2)
 print(f"Percentage: {percentage}")
 
-# TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
+articles = []
 
 if percentage > 1:
     print("Getting NEWS")
@@ -62,14 +63,21 @@ if percentage > 1:
     articles = response.json()["articles"][:3]
     print(articles)
 
+account_sid = api_data.TWILIO_ACCOUNT_SID
+auth_token = api_data.TWILIO_TOKEN
 
-## STEP 3: Use twilio.com/docs/sms/quickstart/python
-# to send a separate message with each article's title and description to your phone number.
+client = Client(account_sid, auth_token)
 
-# TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
-
-# TODO 9. - Send each article as a separate message via Twilio.
-
+for article in articles:
+    message = client.messages.create(
+                                  body=f'{STOCK_NAME} {percentage}%\n'
+                                       f'Headline:{article["title"]}\n'
+                                       f'Brief{article["description"]}\n'
+                                       f'by TahaLearns',
+                                  from_=f'whatsapp:{api_data.TWILIO_NUMBER}',
+                                  to=f'whatsapp:{api_data.MY_NUMBER}'
+                              )
+    print(message.sid)
 
 # Optional TODO: Format the message like this:
 """
