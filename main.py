@@ -33,7 +33,7 @@ NEWS_ENPOINT_PARAMS = {
 response = requests.get(STOCK_ENDPOINT, params=ALPHA_ENDPOINT_PARAMS)
 response.raise_for_status()
 daily_prices = response.json()["Time Series (Daily)"]
-print(daily_prices)
+# print(daily_prices)
 
 current_day_close = float(daily_prices[str(current_day)]["4. close"])
 previous_day_close = float(daily_prices[str(previous_day)]["4. close"])
