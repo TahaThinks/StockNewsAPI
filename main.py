@@ -4,8 +4,8 @@ from datetime import datetime as dt
 from datetime import timedelta
 
 day = dt.now().date()
-current_day = day - timedelta(days=1)
-previous_day = current_day - timedelta(days=1)
+current_day = day - timedelta(days=2)
+previous_day = current_day - timedelta(days=3)
 
 PRICE_API_KEY = api_data.PRICES_API
 NEWS_API_KEY = api_data.NEWS_API
@@ -56,17 +56,11 @@ print(f"Percentage: {percentage}")
 # TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
 
 if percentage > 1:
-    print("Get NEWS")
+    print("Getting NEWS")
     response = requests.get(NEWS_ENDPOINT, params=NEWS_ENPOINT_PARAMS)
     response.raise_for_status()
-    print(response.json())
-
-    ## STEP 2: https://newsapi.org/
-    # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
-
-# TODO 6. - Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
-
-# TODO 7. - Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
+    articles = response.json()["articles"][:3]
+    print(articles)
 
 
 ## STEP 3: Use twilio.com/docs/sms/quickstart/python
