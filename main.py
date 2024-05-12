@@ -37,8 +37,8 @@ print(daily_prices)
 
 current_day_close = float(daily_prices[str(current_day)]["4. close"])
 previous_day_close = float(daily_prices[str(previous_day)]["4. close"])
-print(f"Current Price {current_day_close}")
-print(f"Previous Price {previous_day_close}")
+# print(f"Current Price {current_day_close}")
+# print(f"Previous Price {previous_day_close}")
 
 closing_price_diff = abs(current_day_close - previous_day_close)
 
