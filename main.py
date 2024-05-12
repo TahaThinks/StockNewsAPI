@@ -31,7 +31,6 @@ NEWS_ENPOINT_PARAMS = {
 }
 
 ## STEP 1: Use https://www.alphavantage.co/documentation/#daily
-# When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 
 
 response = requests.get(STOCK_ENDPOINT, params=ALPHA_ENDPOINT_PARAMS)
