@@ -24,7 +24,7 @@ ALPHA_ENDPOINT_PARAMS = {
 }
 
 NEWS_ENPOINT_PARAMS = {
-    'q': "bitcoin",
+    'q': COMPANY_NAME,
     'from': previous_day,
     'sortBy': "popularity",
     'apiKey': NEWS_API_KEY
